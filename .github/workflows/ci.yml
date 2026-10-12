@@ -1,0 +1,14 @@
+name: Verify action
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.0.2, Node 24
+      - run: node --version
+      - run: npm test
+      - run: node --check dist/index.cjs

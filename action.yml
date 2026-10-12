@@ -1,0 +1,15 @@
+name: Aviation ML card fleet summary
+description: Fail a PR gate on missing aviation ODD evidence references, conservative human-override disclosures, or unsigned AI-assisted maintenance review cards.
+inputs:
+  aviation_cards:
+    description: Newline-separated paths to aviation ML assurance card JSON files in the workspace.
+    required: false
+  mro_cards:
+    description: Newline-separated paths to MRO AI sign-off card JSON files in the workspace.
+    required: false
+runs:
+  using: node24
+  main: dist/index.cjs
+branding:
+  icon: check-square
+  color: blue
